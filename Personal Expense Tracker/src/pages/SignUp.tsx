@@ -34,11 +34,7 @@ const SignUp = () => {
       const { error: signUpError, data } = await supabase.auth.signUp({
         email,
         password,
-        options: {
-          data: {
-            username,
-          },
-        },
+        data: { username }, // Changed from options.data to data directly
       });
 
       if (signUpError) throw signUpError;
